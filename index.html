@@ -71,6 +71,23 @@
         color:#8fd3ff;
         margin-top:20px;
     }
+#watchButton{
+    display:inline-block;
+    padding:15px 35px;
+    background:linear-gradient(135deg,#4da6ff,#7cc8ff);
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    font-size:1.2rem;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(77,166,255,0.5);
+    transition:0.3s;
+}
+
+#watchButton:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(77,166,255,0.8);
+}
 </style>
 </head>
 <body>
@@ -102,8 +119,16 @@
     </div>
 
     <div id="finished">
-        🎉 The Snezhnaya PV Trailer has been released! 🎉
-    </div>
+    🎉 The Snezhnaya PV Trailer has been released! 🎉
+
+    <br><br>
+
+    <a id="watchButton"
+       href="https://www.youtube.com/@GenshinImpact"
+       target="_blank">
+       ▶ Watch Now
+    </a>
+</div>
 </div>
 
 <script>
@@ -114,10 +139,18 @@
         const difference = targetDate - now;
 
         if (difference <= 0) {
-            document.getElementById("countdown").style.display = "none";
-            document.getElementById("finished").style.display = "block";
-            return;
-        }
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("finished").style.display = "block";
+
+    setTimeout(() => {
+        window.open(
+            "https://www.youtube.com/@GenshinImpact",
+            "_blank"
+        );
+    }, 3000);
+
+    return;
+}
 
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
